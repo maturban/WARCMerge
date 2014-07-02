@@ -5,9 +5,9 @@ Merging WARCs into a single WARC file
 
 
 Dependencies
-    - "warc" is a Python library to work with WARC files. It is used here for reading WARC records.
+* "warc" is a Python library to work with WARC files. It is used here for reading WARC records.
        It can be downloaded from https://github.com/internetarchive/warc
-    - "warctools" is used also to work with WARC files. One part of this library checks whether WARCs are valid!
+* "warctools" is used also to work with WARC files. One part of this library checks whether WARCs are valid!
        To download https://github.com/internetarchive/warctools
 
 To run mergewarcs.py
