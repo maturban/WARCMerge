@@ -24,10 +24,8 @@ Eaxmple:
 
 Output:
 
-	Merging the following WARC files: 
-	
-	----------------------------------: 
-	
+|	Merging the following WARC files: 
+|	----------------------------------: 
 	[ Yes ]./smallCollectionExample/alarabiya/20140624222112958.warc
 	
 	[ Yes ]./smallCollectionExample/aljazeera/20140624222245150.warc
