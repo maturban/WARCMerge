@@ -16,29 +16,23 @@ To run mergewarcs.py
 =====================
 ```python
  $python mergewarcs.py <WARCs-path>
-'''
+```
 
  This wil Merge all WARC files located in <WARCs-path> and store the result in ./merging-WARCs/. The program will check whether the resulting WARCs are valid!
  
 		
 Eaxmple:
 ========
-* $python mergewarcs.py ./smallCollectionExample/
+```python
+ $python mergewarcs.py ./smallCollectionExample/
 
-Output:
-
-|	Merging the following WARC files: 
-|	----------------------------------: 
+	Merging the following WARC files: 
+	----------------------------------: 
 	[ Yes ]./smallCollectionExample/alarabiya/20140624222112958.warc
-	
 	[ Yes ]./smallCollectionExample/aljazeera/20140624222245150.warc
-	
 	[ Yes ]./smallCollectionExample/goal/20140624222416231.warc
 	
-	
 	Validating the resulting WARC files: 
-	
 	----------------------------------: 
-	
 	- [ valid ]  ./merging-WARCs/40739088-01a6-11e4-84ca-782bcb0f034c/4073f352-01a6-11e4-84ca-782bcb0f034c.warc
-	
+```	
