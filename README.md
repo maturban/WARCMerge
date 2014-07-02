@@ -18,10 +18,10 @@ To run mergewarcs.py
  $python mergewarcs.py <WARCs-path>
 ```
 
- This wil Merge all WARC files located in <WARCs-path> and store the result in ./merging-WARCs/. The program will check whether the resulting WARCs are valid!
+ This will merge all WARC files located in <WARCs-path> and store the result in ./merging-WARCs/. The program will check whether the resulting WARCs are valid!
  
 		
-Eaxmple:
+Example:
 ========
 ```python
  $python mergewarcs.py ./smallCollectionExample/
