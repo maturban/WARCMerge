@@ -14,9 +14,12 @@ Dependencies
 
 To run mergewarcs.py
 =====================
-* $python mergewarcs.py <WARCs-path>
+```python
+ $python mergewarcs.py <WARCs-path>
+'''
 
-        - This wil Merge all WARC files located in <WARCs-path> and store the result in ./merging-WARCs/. The program will check whether the resulting WARCs are valid!
+ This wil Merge all WARC files located in <WARCs-path> and store the result in ./merging-WARCs/. The program will check whether the resulting WARCs are valid!
+ 
 		
 Eaxmple:
 ========
