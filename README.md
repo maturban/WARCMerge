@@ -23,6 +23,7 @@ To run mergewarcs.py
 		
 Example:
 ========
+
 ```python
  $python mergewarcs.py ./smallCollectionExample/
 
@@ -39,11 +40,11 @@ Example:
 	- [ valid ]             ./merging-WARCs/679c1c08-060a-11e4-b7ca-782bcb0f034c/679eac98-060a-11e4-b7ca-782bcb0f034c.warc
 ```	
 
-Archived pages:
-========
-* https://github.com/iipc/openwayback/wiki/How-OpenWayback-handles-revisit-records-in-WARC-files
-* http://www.openplanetsfoundation.org/blogs/2014-03-24-arc-warc-migration-how-deal-de-duplicated-records
-* https://www.google.com/#q=world+cup+brazil+2014+
-* http://econpapers.repec.org/paper/innwpaper/2014-17.htm
-* http://articles.latimes.com/2013/mar/26/sports/la-sp-sn-us-mexico-soccer-game-updates-20130326	
-
+The following are links to the archived pages in the example above:
+```	
+	https://github.com/iipc/openwayback/wiki/How-OpenWayback-handles-revisit-records-in-WARC-files
+	http://www.openplanetsfoundation.org/blogs/2014-03-24-arc-warc-migration-how-deal-de-duplicated-records
+	https://www.google.com/#q=world+cup+brazil+2014+
+	http://econpapers.repec.org/paper/innwpaper/2014-17.htm
+	http://articles.latimes.com/2013/mar/26/sports/la-sp-sn-us-mexico-soccer-game-updates-20130326	
+```	
