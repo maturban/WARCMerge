@@ -31,7 +31,6 @@ Example:
 	----------------------------------: 
 	[ Yes ]./smallCollectionExample/world-cup-2014/20140707174317773.warc
 	[ Yes ]./smallCollectionExample/about-warcs/20140707160258526.warc
-	[ Yes ]./smallCollectionExample/world-cup-2014/20140707170620044.warc
 	[ Yes ]./smallCollectionExample/about-warcs/20140707160041872.warc
 	[ Yes ]./smallCollectionExample/world-cup-2014/20140707183044349.warc
 
@@ -44,7 +43,6 @@ The following are links to the archived pages in the example above:
 ```	
 	https://github.com/iipc/openwayback/wiki/How-OpenWayback-handles-revisit-records-in-WARC-files
 	http://www.openplanetsfoundation.org/blogs/2014-03-24-arc-warc-migration-how-deal-de-duplicated-records
-	https://www.google.com/#q=world+cup+brazil+2014+
 	http://econpapers.repec.org/paper/innwpaper/2014-17.htm
 	http://articles.latimes.com/2013/mar/26/sports/la-sp-sn-us-mexico-soccer-game-updates-20130326	
 ```	
