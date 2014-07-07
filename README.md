@@ -28,11 +28,22 @@ Example:
 
 	Merging the following WARC files: 
 	----------------------------------: 
-	[ Yes ]./smallCollectionExample/alarabiya/20140624222112958.warc
-	[ Yes ]./smallCollectionExample/aljazeera/20140624222245150.warc
-	[ Yes ]./smallCollectionExample/goal/20140624222416231.warc
-	
+	[ Yes ]./smallCollectionExample/world-cup-2014/20140707174317773.warc
+	[ Yes ]./smallCollectionExample/about-warcs/20140707160258526.warc
+	[ Yes ]./smallCollectionExample/world-cup-2014/20140707170620044.warc
+	[ Yes ]./smallCollectionExample/about-warcs/20140707160041872.warc
+	[ Yes ]./smallCollectionExample/world-cup-2014/20140707183044349.warc
+
 	Validating the resulting WARC files: 
 	----------------------------------: 
-	- [ valid ]  ./merging-WARCs/40739088-01a6-11e4-84ca-782bcb0f034c/4073f352-01a6-11e4-84ca-782bcb0f034c.warc
+	- [ valid ]             ./merging-WARCs/679c1c08-060a-11e4-b7ca-782bcb0f034c/679eac98-060a-11e4-b7ca-782bcb0f034c.warc
 ```	
+
+Archived pages:
+========
+* https://github.com/iipc/openwayback/wiki/How-OpenWayback-handles-revisit-records-in-WARC-files
+* http://www.openplanetsfoundation.org/blogs/2014-03-24-arc-warc-migration-how-deal-de-duplicated-records
+* https://www.google.com/#q=world+cup+brazil+2014+
+* http://econpapers.repec.org/paper/innwpaper/2014-17.htm
+* http://articles.latimes.com/2013/mar/26/sports/la-sp-sn-us-mexico-soccer-game-updates-20130326	
+
