@@ -1,7 +1,7 @@
 mergewarc
 =========
 
-Merging WARCs into a single WARC file
+Merging WARCs into a single WARC file 
 
 
 Dependencies
