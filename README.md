@@ -15,14 +15,14 @@ Dependencies
 To run WARCMerge.py
 =====================
 * Two options:
-* (1)
+(1)
 ```python
  %python WARCMerge.py <WARCs-path>
 ```
 
  This will merge all WARC files located in "WARCs-path" and store the result in new directory inside ./merging-WARCs/. The program also will check whether or not the resulting WARCs are valid!
 
-*(2) 
+(2) 
 ```python
  %python WARCMerge.py  <Source-WARC-file-path>  <Dest-WARC-file-path>
 ```
@@ -49,6 +49,7 @@ Example:
 	----------------------------------: 
 	- [ valid ]     ./merging-WARCs/WARCMerge20140713113532151317/WARCMerge20140713113532152003.warc
 ```	
+
 (2) Appending WARC file to another WARC file:
 ```python
 	%python WARCMerge.py ./testAppendCollection/source/20140707160258526.warc 
