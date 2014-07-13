@@ -15,19 +15,20 @@ Dependencies
 To run WARCMerge.py
 =====================
 * Two options:
+
 (1)
 ```python
  %python WARCMerge.py <WARCs-path>
 ```
 
- This will merge all WARC files located in "WARCs-path" and store the result in new directory inside ./merging-WARCs/. The program also will check whether or not the resulting WARCs are valid!
+ This will merge all WARC files located in "WARCs-path" and store the result in a new directory inside ./merging-WARCs/. The program also will check whether or not the resulting WARCs are valid!
 
 (2) 
 ```python
  %python WARCMerge.py  <Source-WARC-file-path>  <Dest-WARC-file-path>
 ```
 
- This will append source WARC file to the end of dest. WARC file. Also, here the resulting dest. file will be checked to see if it is valid WARC file or not!
+ This will append the source WARC file to the end of the dest. WARC file. Also, here the resulting dest. file will be checked to see if it is valid WARC file or not!
 
  
 		
