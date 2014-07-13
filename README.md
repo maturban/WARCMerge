@@ -28,7 +28,7 @@ To run WARCMerge.py
  %python WARCMerge.py  <Source-WARC-file-path>  <Dest-WARC-file-path>
 ```
 
- This will append the source WARC file to the end of the dest. WARC file. Also, here the resulting dest. file will be checked to see if it is valid WARC file or not!
+ This will append the source WARC file to the end of dest. WARC file. Also, here the resulting dest. file will be checked to see if it is valid WARC file or not!
 
  
 		

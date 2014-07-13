@@ -48,9 +48,8 @@ def sortFiles(fileList):
 	return fileList	
 
 # check if WARC file is valid
-# from https://github.com/internetarchive/warctools/
+# from https://bitbucket.org/nclarkekb/jwat-tools/downloads
 def isWarcValid(warcfile):
-	# from https://bitbucket.org/nclarkekb/jwat-tools/downloads
 	flagV = 0 # valid
 	res = os.popen("./jwattools.sh -t /home/maturban/warc-vary-simple.warc").read().split()
 	try:
