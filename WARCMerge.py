@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Author: M. Aturban, Old Dominion University, WS-DL Group
+# Author: Mohamed Aturban, Old Dominion University, CS department, WS-DL Group
 import datetime
 import sys 
 import os
@@ -51,7 +51,7 @@ def sortFiles(fileList):
 # from https://bitbucket.org/nclarkekb/jwat-tools/downloads
 def isWarcValid(warcfile):
 	flagV = 0 # valid
-	res = os.popen("./jwattools.sh -t /home/maturban/warc-vary-simple.warc").read().split()
+	res = os.popen("./jwattools.sh -t "+warcfile).read().split()
 	try:
 		resIndex = res.index('Errors:')
 		if(res[resIndex + 1] == '0'):
@@ -108,7 +108,7 @@ if len(sys.argv) == 3:
 		f = warc.WARCFile(Sfile, "rb")
 		for record in f:
 			if ("warcinfo" in record['WARC-Type']):
-				New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-Appended-By-WARCMerge-M.Aturban: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
+				New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-appended-by-WARCMerge: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
 				record['Content-Length'] = str(len(New_Payload))
 				R = warc.WARCRecord(record.header , New_Payload)
 			else:	
@@ -180,7 +180,7 @@ else:
 						filePtr.write_record(R)
 						flag = 1
 					if ("warcinfo" in record['WARC-Type']):
-						New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-Appended-By-WARCMerge-M.Aturban: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
+						New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-appended-by-WARCMerge: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
 						record['Content-Length'] = str(len(New_Payload))
 						R = warc.WARCRecord(record.header , New_Payload)
 					else:	
