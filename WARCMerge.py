@@ -51,7 +51,8 @@ def sortFiles(fileList):
 # from https://bitbucket.org/nclarkekb/jwat-tools/downloads
 def isWarcValid(warcfile):
 	flagV = 0 # valid
-	res = os.popen("./jwattools.sh -t "+warcfile).read().split()
+	str = "java -Xms256m -Xmx1048m -XX:PermSize=64M -XX:MaxPermSize=256M -jar target/jwat-tools-*-jar-with-dependencies.jar -t "+warcfile	
+	res = os.popen(str).read().split()
 	try:
 		resIndex = res.index('Errors:')
 		if(res[resIndex + 1] == '0'):
@@ -110,9 +111,9 @@ if len(sys.argv) == 3:
 			if ("warcinfo" in record['WARC-Type']):
 				New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-appended-by-WARCMerge: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
 				record['Content-Length'] = str(len(New_Payload))
-				R = warc.WARCRecord(record.header , New_Payload)
+				R = warc.WARCRecord(record.header , New_Payload, defaults=False)
 			else:	
-				R = warc.WARCRecord(payload=record.payload.read(), headers=record.header)
+				R = warc.WARCRecord(payload=record.payload.read(), headers=record.header, defaults=False)
 			filePtr.write_record(R)
 	except Exception as e:
 		print 'Error in reading:' + Sfile
@@ -182,9 +183,9 @@ else:
 					if ("warcinfo" in record['WARC-Type']):
 						New_Payload = record.payload.read().strip()+ "\r\n" +"WARC-appended-by-WARCMerge: "+datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ') + "\r\n"
 						record['Content-Length'] = str(len(New_Payload))
-						R = warc.WARCRecord(record.header , New_Payload)
+						R = warc.WARCRecord(record.header , New_Payload, defaults=False)
 					else:	
-						R = warc.WARCRecord(payload=record.payload.read(), headers=record.header)
+						R = warc.WARCRecord(payload=record.payload.read(), headers=record.header, defaults=False)
 					filePtr.write_record(R)
 				print '[ Yes ]' + warcFile	
 			except Exception as e:
