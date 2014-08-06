@@ -28,14 +28,14 @@ To run WARCMerge.py
  %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
 ```
 
- This will merge all listed WARC files and store the resulting output file(s) in "output-directory". 
+ Here, all listed WARC files will be merged and stored the resulting output file(s) in "output-directory". 
 
 (3) 
 ```python
  %python WARCMerge.py  -a <source-file> <dest-file>
 ```
 
- This will append the source WARC file "source-file" to the end of destination WARC file "dest-file".
+ The purpose of "-a" flag is to make sure that any changes in "dest-file" are done intentionally.The command line above appends the source WARC file "source-file" to the end of destination WARC file "dest-file".
  
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
@@ -61,7 +61,7 @@ Example:
 (2) Appending WARC file to another WARC file:
 
 ```python
-	%python WARCMerge.py -a ./testAppend/source/20258526.warc ./testAppend/dest/20141872.warc
+	%python WARCMerge.py -a ./test/src/20258526.warc ./test/dest/20141872.warc
 
 	The resulting (./testAppend/dest/20141872.warc) is valid WARC file
 ```
