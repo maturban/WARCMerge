@@ -39,7 +39,7 @@ To run WARCMerge.py
  
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
-Example:
+Examples:
 ========
 
 (1) Merging WARC files (found in "input-directory") into new WARC file(s):
