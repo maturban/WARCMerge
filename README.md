@@ -1,19 +1,18 @@
 WARCMerge
 =========
 
-Merging WARC files into a single WARC file 
+Tool to allow merging of multiple WARC files into a single WARC 
 
 
 ##Dependencies
-==================
-* Tested on Linux Ubuntu 
-* Python 2.7+ 
-* Java to run Jwattools for validating WARC files
-* "warc" is a Python library to work with WARC files. It is used here for reading WARC records.
-       It can be downloaded from https://github.com/internetarchive/warc
+
+* Tested on Ubuntu Linux
+* Requires Python 2.7+ 
+* Requires Java to run Jwattools for validating WARC files
+* Requires [the warc python library](https://github.com/internetarchive/warc) from Internet Archive to work with WARC files and WARC records.
 
 ##Running WARCMerge.py
-=====================
+
 WARCMerge can be executed using one of three different methods:
 
 ### Method 1
@@ -40,7 +39,6 @@ WARCMerge can be executed using one of three different methods:
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
 ##Examples
-========
 
 ###Example 1: Merging WARC files (found in "input-directory") into new WARC file(s):
 ```python
@@ -91,6 +89,8 @@ Validating the resulting WARC files:
 					 [ <file1> <file2> <file3> ...  <output-directory> ] 
 ```
 
+
+##Relevant Linkage
 
 The following are links to the archived pages in the example above:
 ```	
