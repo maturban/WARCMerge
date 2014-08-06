@@ -26,7 +26,7 @@ To run WARCMerge.py
 (2)
 ```python
  %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
-```python
+```
 
  This will merge all listed WARC files and store the resulting output file(s) in <output-directory>. 
 
@@ -56,7 +56,6 @@ Example:
 	Validating the resulting WARC files: 
 	----------------------------------: 
 	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
-
 ```	
 
 (2) Appending WARC file to another WARC file:
