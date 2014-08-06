@@ -14,51 +14,71 @@ Dependencies
 
 To run WARCMerge.py
 =====================
-* Two options:
+* Three options:
 
 (1)
 ```python
- %python WARCMerge.py <WARCs-path>
+ %python WARCMerge.py <input-directory> <output-directory>
 ```
 
- This will merge all WARC files located in "WARCs-path" and store the result in a new directory inside ./merging-WARCs/. The program also will check whether or not the resulting WARCs are valid!
+ This will merge all WARC files found in <input-directory> and store the resulting output file(s) in <output-directory>.
 
-(2) 
+(2)
 ```python
- %python WARCMerge.py  <Source-WARC-file-path>  <Dest-WARC-file-path>
+ %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
+```python
+
+ This will merge all listed WARC files and store the resulting output file(s) in <output-directory>. 
+
+(3) 
+```python
+ %python WARCMerge.py  -a <source-file> <dest-file>
 ```
 
- This will append the source WARC file to the end of dest. WARC file. Also, here the resulting dest. file will be checked to see if it is valid WARC file or not!
-
+ This will append the source WARC file <source-file> to the end of destination WARC file <dest-file>.
  
-		
+ In all cases, the program checks to see whether or not the resulting WARCs are valid! 
+
 Example:
 ========
 
-(1) Merging WARC files into a new WARC file:
+(1) Merging WARC files (found in <input-directory>) into a new WARC file:
 ```python
- %python WARCMerge.py ./smallCollectionExample/
+ %python WARCMerge.py ./collectionExample/ my-output-dir
 
 	Merging the following WARC files: 
 	----------------------------------: 
-	[ Yes ]./smallCollectionExample/world-cup-2014/20140707174317773.warc
-	[ Yes ]./smallCollectionExample/about-warcs/20140707160258526.warc
-	[ Yes ]./smallCollectionExample/about-warcs/20140707160041872.warc
-	[ Yes ]./smallCollectionExample/world-cup-2014/20140707183044349.warc
+	[ Yes ]./collectionExample/world-cup/20140707174317773.warc
+	[ Yes ]./collectionExample/warcs/20140707160258526.warc
+	[ Yes ]./collectionExample/warcs/20140707160041872.warc
+	[ Yes ]./collectionExample/world-cup/20140707183044349.warc
 
 	Validating the resulting WARC files: 
 	----------------------------------: 
-	- [ valid ]     ./merging-WARCs/WARCMerge20140713113532151317/WARCMerge20140713113532152003.warc
+	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
+
 ```	
 
 (2) Appending WARC file to another WARC file:
-```python
-	%python WARCMerge.py ./testAppendCollection/source/20140707160258526.warc 
-	                     ./testAppendCollection/dest/20140707160041872.warc
 
-	The resulting Dest: (./TestAppend/dest/20140707160041872.warc) is valid WARC file
+maturban:~/GitHub/WARCMerge$ python WARCMerge.py -a ./testAppendCollection/source/20140707160258526.warc ./testAppendCollection/dest/20140707160041872.warc
+
+         
+		 
+```python
+	%python WARCMerge.py -a ./testAppend/source/20258526.warc ./testAppend/dest/20141872.warc
+
+	The resulting (./testAppend/dest/20141872.warc) is valid WARC file
 ```
 
+(4) Giving incorrect arguments, the following message will be shown: 
+```python
+  %python WARCMerge.py -n 20160041872.warc new-dir
+
+	usage: WARCMerge [ -a <source-file> <dest-file> ]
+					 [ <input-directory> <output-directory> ]
+					 [ <file1 file2 file3 ... > <output-directory> ] 
+```
 
 
 The following are links to the archived pages in the example above:
