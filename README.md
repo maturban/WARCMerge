@@ -58,15 +58,30 @@ Example:
 	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
 ```	
 
-(2) Appending WARC file to another WARC file:
+(2) Merging all listed WARC files into a new WARC file:
+```python
+ %python WARCMerge.py 585.warc 472.warc ./dir1/113.warc ./warcs/449.warc mydir
+
+Merging the following WARC files: 
+----------------------------------: 
+[ Yes ] ./warcs/449.warc
+[ Yes ] ./585.warc
+[ Yes ] ./dir1/113.warc
+[ Yes ] ./472.warc
+
+Validating the resulting WARC files: 
+----------------------------------: 
+- [ valid ]     mydir/WARCMerge20140806040546699431.warc
+
+(3) Appending WARC file to another WARC file:
 
 ```python
 	%python WARCMerge.py -a ./test/src/20258526.warc ./test/dest/20141872.warc
 
-	The resulting (./testAppend/dest/20141872.warc) is valid WARC file
+	The resulting (./test/dest/20141872.warc) is valid WARC file
 ```
 
-(3) Giving incorrect arguments, the following message will be shown: 
+(4) Giving incorrect arguments, the following message will be shown: 
 ```python
   %python WARCMerge.py -n 20160041872.warc new-dir
 
