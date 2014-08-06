@@ -1,36 +1,35 @@
 WARCMerge
 =========
 
-Merging WARC files into a single WARC file 
+Tool to allow merging of multiple WARC files into a single WARC 
 
 
-Dependencies
-==================
-* Tested on Linux Ubuntu 
-* Python 2.7+ 
-* Java to run Jwattools for validating WARC files
-* "warc" is a Python library to work with WARC files. It is used here for reading WARC records.
-       It can be downloaded from https://github.com/internetarchive/warc
+##Dependencies
 
-To run WARCMerge.py
-=====================
-* Three options:
+* Tested on Ubuntu Linux
+* Requires Python 2.7+ 
+* Requires Java to run Jwattools for validating WARC files
+* Requires [the warc python library](https://github.com/internetarchive/warc) from Internet Archive to work with WARC files and WARC records.
 
-(1)
+##Running WARCMerge.py
+
+WARCMerge can be executed using one of three different methods:
+
+### Method 1
 ```python
  %python WARCMerge.py <input-directory> <output-directory>
 ```
 
  This will merge all WARC files found in "input-directory" and store the resulting output file(s) in "output-directory".
 
-(2)
+### Method 2
 ```python
  %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
 ```
 
  Here, all listed WARC files will be merged and stored the resulting output file(s) in "output-directory". 
 
-(3) 
+### Method 3
 ```python
  %python WARCMerge.py  -a <source-file> <dest-file>
 ```
@@ -39,10 +38,9 @@ To run WARCMerge.py
  
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
-Examples:
-========
+##Examples
 
-(1) Merging WARC files (found in "input-directory") into new WARC file(s):
+###Example 1: Merging WARC files (found in "input-directory") into new WARC file(s):
 ```python
  %python WARCMerge.py ./collectionExample/ my-output-dir
 
@@ -58,7 +56,7 @@ Examples:
 	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
 ```	
 
-(2) Merging all listed WARC files into new WARC file(s):
+###Example 2: Merging all listed WARC files into new WARC file(s)
 ```python
  %python WARCMerge.py 585.warc 472.warc ./dir1/113.warc ./warcs/449.warc mydir
 
@@ -74,7 +72,7 @@ Validating the resulting WARC files:
 - [ valid ]     mydir/WARCMerge20140806040546699431.warc
 ```
 
-(3) Appending a WARC file to another WARC file:
+### Example 3: Appending a WARC file to another WARC file:
 
 ```python
 	%python WARCMerge.py -a ./test/src/20258526.warc ./test/dest/20141872.warc
@@ -82,7 +80,7 @@ Validating the resulting WARC files:
 	The resulting (./test/dest/20141872.warc) is valid WARC file
 ```
 
-(4) Giving incorrect arguments, the following message will be shown: 
+###Example 4: Giving incorrect arguments, the following message will be shown: 
 ```python
   %python WARCMerge.py -n 20160041872.warc new-dir
 
@@ -91,6 +89,8 @@ Validating the resulting WARC files:
 					 [ <file1> <file2> <file3> ...  <output-directory> ] 
 ```
 
+
+##Relevant Linkage
 
 The following are links to the archived pages in the example above:
 ```	
