@@ -67,23 +67,23 @@ def isWarcValid(warcfile):
 	return flagV	
 
 def showUsage():
-	print 'test.py -i <inputfile> -o <outputfile>'
+	print '\n usage: WARCMerge [-a <source-file> <dest-file>]\n' + \
+	      '                  [ <input-directory> <output-directory> ]\n' + \
+		  '                  [ <file1 file2 file3 ... > <output-directory> ]\n'
 	sys.exit(0)
-	
-
+		  
 		                        ############################################								
-#print len(sys.argv)
-# [0] = WARCMerge.py
-#for i in range(len(sys.argv)):
-#	print i
-#	print sys.argv[i]
-#usage: test.py -i <inputfile> -o <outputfile>	
+outputFilesList = []								
 
 try:
 	opts, args = getopt.getopt(sys.argv[1:],"ha",)
 except getopt.GetoptError:
 	showUsage()
+	
 if len(opts) == 0:
+	for s in args:
+		if s[0] == '-':
+			showUsage()
 	if len(args) < 2:
 		showUsage()
 	# merging WARCs into a new WARC file	
@@ -123,20 +123,13 @@ if len(opts) == 0:
 				print('\n  No WARC files found in given list \n')
 				sys.exit(0)	
 
-		# Meging files 
-
-		#outputPath = "./merging-WARCs/"
-		#if not os.path.exists(outputPath):
-		#	os.makedirs(outputPath)
 		outputPath	= Ddir
-		# create a new folder 	
-		#outputPath = outputPath + timeStampedFilename("WARCMerge")
-		#os.makedirs(outputPath)
 
 		# generate new warc file name
 		newFile = timeStampedFilename("WARCMerge")+'.warc'
 		newFileFullPath = outputPath+'/'+newFile
 		filePtr = warc.open(newFileFullPath, "w")
+		outputFilesList.append(newFileFullPath)
 		flag = 0
 
 		outputFileSize = os.path.getsize(newFileFullPath) / forConvertToMB
@@ -157,6 +150,7 @@ if len(opts) == 0:
 				newFile = timeStampedFilename("WARCMerge")+'.warc'
 				newFileFullPath = outputPath+'/'+newFile
 				filePtr = warc.open(newFileFullPath, "w")
+				outputFilesList.append(newFileFullPath)
 				flag = 0
 		
 			f = warc.WARCFile(warcFile, "rb")
@@ -186,7 +180,8 @@ if len(opts) == 0:
 		print '\nValidating the resulting WARC files: ' 
 		print '----------------------------------: ' 
 
-		dirTreeCheckWARCs = list_files(outputPath)
+		#dirTreeCheckWARCs = list_files(outputPath)
+		dirTreeCheckWARCs = outputFilesList
 		
 		for filePath in dirTreeCheckWARCs:
 			correct = isWarcValid(filePath)
@@ -204,6 +199,8 @@ elif len(opts) == 1:
 		if opts[0][0] == '-h':
 			showUsage()
 		elif opts[0][0] == '-a':
+			if len(args) != 2:
+				showUsage()
 			################ Appending ############### 
 			# Appending to an existing WARC file
 			#if len(sys.argv) == 3:
@@ -267,9 +264,12 @@ elif len(opts) == 1:
 else:
 	showUsage()		
 
+if os.path.isfile("./v.out"):
+	os.remove("./v.out")
+if os.path.isfile("./e.out"):
+	os.remove("./e.out")
 
-
-sys.exit(0)
+'''
 
 # Appending to an existing WARC file
 if len(sys.argv) == 3:
@@ -420,13 +420,15 @@ else:
 		print	
 	else:	
 		print '\n  Usage:   %python WARCMerge.py <Path-to-directory-of-WARC-files> \n          Or'
-		print '           %python WARCMerge.py <Path-to-SOURCE-warc-file> <Path-to-DEST-WARC-file> \n'
+		print '           %python WARCMerge.py <Path-to-SOURCE-WARC-file> <Path-to-DEST-WARC-file> \n'
 		sys.exit(0)
 	
 if os.path.isfile("./v.out"):
 	os.remove("./v.out")
 if os.path.isfile("./e.out"):
 	os.remove("./e.out")
+'''
+	
 '''
 	record['WARC-Type']
 '''
