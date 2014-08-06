@@ -67,9 +67,9 @@ def isWarcValid(warcfile):
 	return flagV	
 
 def showUsage():
-	print '\n usage: WARCMerge [-a <source-file> <dest-file>]\n' + \
+	print '\n usage: WARCMerge [ -a <source-file> <dest-file> ]\n' + \
 	      '                  [ <input-directory> <output-directory> ]\n' + \
-		  '                  [ <file1 file2 file3 ... > <output-directory> ]\n'
+		  '                  [ <file1> <file2> <file3> ...  <output-directory> ]\n'
 	sys.exit(0)
 		  
 		                        ############################################								
