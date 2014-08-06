@@ -72,7 +72,7 @@ Example:
 
 	usage: WARCMerge [ -a <source-file> <dest-file> ]
 					 [ <input-directory> <output-directory> ]
-					 [ <file1 file2 file3 ... > <output-directory> ] 
+					 [ <file1> <file2> <file3> ...  <output-directory> ] 
 ```
 
 
