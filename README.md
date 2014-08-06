@@ -35,7 +35,7 @@ To run WARCMerge.py
  %python WARCMerge.py  -a <source-file> <dest-file>
 ```
 
- The purpose of "-a" flag is to make sure that any changes in "dest-file" are done intentionally.The command line above appends the source WARC file "source-file" to the end of destination WARC file "dest-file".
+ The purpose of "-a" flag is to make sure that any changes in "dest-file" are done intentionally.The command line above appends the source WARC file "source-file" to the end of the destination WARC file "dest-file".
  
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
