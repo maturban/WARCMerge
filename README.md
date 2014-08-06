@@ -74,7 +74,7 @@ Validating the resulting WARC files:
 - [ valid ]     mydir/WARCMerge20140806040546699431.warc
 ```
 
-(3) Appending WARC file to another WARC file:
+(3) Appending a WARC file to another WARC file:
 
 ```python
 	%python WARCMerge.py -a ./test/src/20258526.warc ./test/dest/20141872.warc
