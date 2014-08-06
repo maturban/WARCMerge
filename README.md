@@ -42,7 +42,7 @@ To run WARCMerge.py
 Example:
 ========
 
-(1) Merging WARC files (found in "input-directory") into a new WARC file:
+(1) Merging WARC files (found in "input-directory") into new WARC file(s):
 ```python
  %python WARCMerge.py ./collectionExample/ my-output-dir
 
@@ -58,7 +58,7 @@ Example:
 	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
 ```	
 
-(2) Merging all listed WARC files into a new WARC file:
+(2) Merging all listed WARC files into a new WARC file(s):
 ```python
  %python WARCMerge.py 585.warc 472.warc ./dir1/113.warc ./warcs/449.warc mydir
 
@@ -72,6 +72,7 @@ Merging the following WARC files:
 Validating the resulting WARC files: 
 ----------------------------------: 
 - [ valid ]     mydir/WARCMerge20140806040546699431.warc
+```
 
 (3) Appending WARC file to another WARC file:
 
