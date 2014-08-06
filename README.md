@@ -21,28 +21,28 @@ To run WARCMerge.py
  %python WARCMerge.py <input-directory> <output-directory>
 ```
 
- This will merge all WARC files found in <input-directory> and store the resulting output file(s) in <output-directory>.
+ This will merge all WARC files found in "input-directory" and store the resulting output file(s) in "output-directory".
 
 (2)
 ```python
  %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
 ```
 
- This will merge all listed WARC files and store the resulting output file(s) in <output-directory>. 
+ This will merge all listed WARC files and store the resulting output file(s) in "output-directory". 
 
 (3) 
 ```python
  %python WARCMerge.py  -a <source-file> <dest-file>
 ```
 
- This will append the source WARC file <source-file> to the end of destination WARC file <dest-file>.
+ This will append the source WARC file "source-file" to the end of destination WARC file "dest-file".
  
  In all cases, the program checks to see whether or not the resulting WARCs are valid! 
 
 Example:
 ========
 
-(1) Merging WARC files (found in <input-directory>) into a new WARC file:
+(1) Merging WARC files (found in "input-directory") into a new WARC file:
 ```python
  %python WARCMerge.py ./collectionExample/ my-output-dir
 
@@ -60,17 +60,13 @@ Example:
 
 (2) Appending WARC file to another WARC file:
 
-maturban:~/GitHub/WARCMerge$ python WARCMerge.py -a ./testAppendCollection/source/20140707160258526.warc ./testAppendCollection/dest/20140707160041872.warc
-
-         
-		 
 ```python
 	%python WARCMerge.py -a ./testAppend/source/20258526.warc ./testAppend/dest/20141872.warc
 
 	The resulting (./testAppend/dest/20141872.warc) is valid WARC file
 ```
 
-(4) Giving incorrect arguments, the following message will be shown: 
+(3) Giving incorrect arguments, the following message will be shown: 
 ```python
   %python WARCMerge.py -n 20160041872.warc new-dir
 
