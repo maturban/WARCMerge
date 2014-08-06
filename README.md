@@ -58,7 +58,7 @@ Example:
 	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
 ```	
 
-(2) Merging all listed WARC files into a new WARC file(s):
+(2) Merging all listed WARC files into new WARC file(s):
 ```python
  %python WARCMerge.py 585.warc 472.warc ./dir1/113.warc ./warcs/449.warc mydir
 
