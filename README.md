@@ -27,7 +27,7 @@ WARCMerge can be executed using one of three different methods:
  %python WARCMerge.py <file1> <file2> <file3> ... <output-directory>
 ```
 
- Here, all listed WARC files will be merged and stored the resulting output file(s) in "output-directory". 
+ Here, all listed WARC files will be merged and the resulting output file(s) will be stored in "output-directory". 
 
 ### Method 3
 ```python
