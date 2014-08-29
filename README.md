@@ -13,7 +13,7 @@ Tool to allow merging of multiple WARC files into a single WARC
 
 ##Running WARCMerge.py
 
-WARCMerge can be executed using one of three different methods:
+WARCMerge can be executed using one of three different methods; adding the option '-q' will make the program run in a quiet mode; the program does not display any messages:
 
 ### Method 1
 ```python
