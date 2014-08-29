@@ -62,25 +62,35 @@ def isWarcValid(warcfile):
 			flagV = -1 # WARC invalid
 	except Exception as e:
 		flagV = -2 # not working
-		print ("Warning: WARC validator (jwattools.sh) cannot be run")
+		if quietMode == False:
+			print ("Warning: WARC validator (jwattools.sh) cannot be run")
 		pass
 	return flagV	
 
 def showUsage():
-	print '\n usage: WARCMerge [ -a <source-file> <dest-file> ]\n' + \
-	      '                  [ <input-directory> <output-directory> ]\n' + \
-		  '                  [ <file1> <file2> <file3> ...  <output-directory> ]\n'
+	if quietMode == False:
+		print '\n usage: WARCMerge [ -a <source-file> <Destination-file> ]\n' + \
+			'                  [ <input-directory> <output-directory> ]\n' + \
+			'                  [ <file1> <file2> <file3> ...  <output-directory> ]\n'
 	sys.exit(0)
 		  
 		                        ############################################								
 outputFilesList = []								
+quietMode = False
+flags = []
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:],"ha",)
+	opts, args = getopt.getopt(sys.argv[1:],"haq",)
+	for v in opts:
+		if v[0] == '-q':
+			quietMode = True
+		else:	
+			flags.append(v[0])
+			
 except getopt.GetoptError:
 	showUsage()
 	
-if len(opts) == 0:
+if len(flags) == 0:
 	for s in args:
 		if s[0] == '-':
 			showUsage()
@@ -95,15 +105,17 @@ if len(opts) == 0:
 			Sdir = args[0]#sys.argv[1]
 			Ddir = args[1]#sys.argv[2]		
 			if os.path.isdir(Sdir) == False:
-				print('\n  No such directory: '+Sdir+' \n')
-				print('\n  use -a to append one file to another \n')
+				if quietMode == False:
+					print('\n  No such directory: '+Sdir+' \n')
+					print('\n  use -a to append one file to another \n')
 				sys.exit(0)
 			if os.path.isdir(Ddir) == False:
 				# Create the destination file if possible
 				os.makedirs(Ddir)			
 			dirTree = list_files(Sdir)
 			if len(dirTree) == 0:
-				print('\n  No WARCs found in the directory: '+Sdir+' \n')
+				if quietMode == False:
+					print('\n  No WARCs found in the directory: '+Sdir+' \n')
 				sys.exit(0)
 		# meging list of WARCs into an output dirctory
 		else:
@@ -118,9 +130,11 @@ if len(opts) == 0:
 				else:
 					flagCheckFiles = 1
 			if flagCheckFiles == 1:
-				print "\n The given list contains one or more files that are not in valid WARC format"
+				if quietMode == False:
+					print "\n The given list contains one or more files that are not in valid WARC format"
 			if len(dirTree) == 0:
-				print('\n  No WARC files found in given list \n')
+				if quietMode == False:
+					print('\n  No WARC files found in given list \n')
 				sys.exit(0)	
 
 		outputPath	= Ddir
@@ -136,10 +150,11 @@ if len(opts) == 0:
 
 		# Sorting files by sizes
 		sortFiles(dirTree)
-
-		print 
-		print 'Merging the following WARC files: ' 
-		print '----------------------------------: ' 
+		
+		if quietMode == False:
+			print 
+			print 'Merging the following WARC files: ' 
+			print '----------------------------------: ' 
 
 		for warcFile in dirTree:
 			outputFileSize = os.path.getsize(newFileFullPath) / forConvertToMB
@@ -167,18 +182,21 @@ if len(opts) == 0:
 					else:	
 						R = warc.WARCRecord(payload=record.payload.read(), headers=record.header, defaults=False)
 					filePtr.write_record(R)
-				print '[ Yes ]' + warcFile	
+				if quietMode == False:	
+					print '[Yes]' + warcFile	
 			except Exception as e:
 				#print("Exceptionq: %s"%(str(e)))
-				print '[ No ]' + warcFile
+				if quietMode == False:
+					print '[No]' + warcFile
 				pass
 		filePtr.close()
 		outputFileSize = os.path.getsize(newFileFullPath) / forConvertToMB
 		if outputFileSize == 0:
 			os.remove(newFileFullPath)
 
-		print '\nValidating the resulting WARC files: ' 
-		print '----------------------------------: ' 
+		if quietMode == False:	
+			print '\nValidating the resulting WARC files: ' 
+			print '----------------------------------: ' 
 
 		#dirTreeCheckWARCs = list_files(outputPath)
 		dirTreeCheckWARCs = outputFilesList
@@ -188,17 +206,21 @@ if len(opts) == 0:
 			if correct == -2:
 				break
 			if correct == 0:
-				print '- [ valid ]\t'+filePath+''
+				if quietMode == False:
+					print '[valid]  '+filePath+''
 			else:
 				if correct == -1:
-					print '- [ Invalid ]\t'+filePath+''
+					if quietMode == False:
+						print '[Invalid]  '+filePath+''
 				else:
-					print '- [ WARC validator (jwattools.sh) cannot be run ]\t\t'+filePath+''
-		print				
-elif len(opts) == 1:
-		if opts[0][0] == '-h':
+					if quietMode == False:
+						print '[WARC validator (jwattools.sh) cannot be run]\t\t'+filePath+''
+		if quietMode == False:				
+			print				
+elif len(flags) == 1:
+		if flags[0] == '-h':
 			showUsage()
-		elif opts[0][0] == '-a':
+		elif flags[0] == '-a':
 			if len(args) != 2:
 				showUsage()
 			################ Appending ############### 
@@ -207,38 +229,48 @@ elif len(opts) == 1:
 			Sfile = args[0]#sys.argv[1]
 			Dfile = args[1]#sys.argv[2]
 			if not os.path.isfile(Sfile):
-				print('\n  No such file: '+Sfile+' \n')
+				if quietMode == False:
+					print('\n  No such file: '+Sfile+' \n')
 				sys.exit(0)	
 			if not os.path.isfile(Dfile):
-				print('\n  No such file: '+Dfile+' \n')
+				if quietMode == False:
+					print('\n  No such file: '+Dfile+' \n')
 				sys.exit(0)
 			if (not Sfile.endswith(".warc")):
-				print ("\n Source file ("+Sfile+") is not WARC file")
+				if quietMode == False:
+					print ("\n Source file ("+Sfile+") is not WARC file")
 				sys.exit(0)
 			if (not Dfile.endswith(".warc")):
-				print ("\n Dest file ("+Dfile+") is not WARC file")
+				if quietMode == False:
+					print ("\n Destination file ("+Dfile+") is not WARC file")
 				sys.exit(0)
 			correct = isWarcValid(Sfile)
 			if correct == -2:
-				print ("Warning: WARC validator (jwattools.sh) cannot be run")
+				if quietMode == False:
+					print ("Warning: WARC validator (jwattools.sh) cannot be run")
 			else:
 				if correct != 0:
-					print ("\n Source file ("+Sfile+") is not valid WARC file")
+					if quietMode == False:
+						print ("\n Source file ("+Sfile+") is not valid WARC file")
 					sys.exit(0)		
 			correct = isWarcValid(Dfile)
 			if correct == -2:
-				print ("Warning: WARC validator (jwattools.sh) cannot be run")
+				if quietMode == False:
+					print ("Warning: WARC validator (jwattools.sh) cannot be run")
 			else:
 				if correct != 0:
-					print ("\n Dest file ("+Dfile+") is not valid WARC file")
+					if quietMode == False:
+						print ("\n Destination file ("+Dfile+") is not valid WARC file")
 					sys.exit(0)
 			if (( (os.path.getsize(Sfile)/ forConvertToMB) + (os.path.getsize(Dfile)/ forConvertToMB)) > MaxWarcSize):
-				print ("\n Connot merge <Souce> file with <Dest> file: [Maximum <Dest> WARC file is "+str(MaxWarcSize)+" MB].")
+				if quietMode == False:
+					print ("\n Connot merge <Souce> file with <Destination> file: [Maximum <Destination> WARC file is "+str(MaxWarcSize)+" MB].")
 				sys.exit(0)
 			try:
 				filePtr = warc.open(Dfile, "a")
 			except Exception as e:
-				print 'Error in writing in:' + Dfile
+				if quietMode == False:
+					print 'Error in writing in:' + Dfile
 				sys.exit(0)
 			try:
 				f = warc.WARCFile(Sfile, "rb")
@@ -251,15 +283,18 @@ elif len(opts) == 1:
 						R = warc.WARCRecord(payload=record.payload.read(), headers=record.header, defaults=False)
 					filePtr.write_record(R)
 			except Exception as e:
-				print 'Error in reading:' + Sfile
+				if quietMode == False:
+					print 'Error in reading:' + Sfile
 				sys.exit(0)
 			f.close()		
 			filePtr.close()
 			correct = isWarcValid(Dfile)
 			if correct ==0:
-				print ("\n\t The resulting Dest: ("+Dfile+") is valid WARC file")
+				if quietMode == False:
+					print ("\n\t The resulting Destination: ("+Dfile+") is valid WARC file")
 			if correct != 0:
-				print ("\n The resulting Dest file ("+Dfile+") is not valid WARC file")
+				if quietMode == False:
+					print ("\n The resulting Destination file ("+Dfile+") is not valid WARC file")
 				sys.exit(0)
 else:
 	showUsage()		
