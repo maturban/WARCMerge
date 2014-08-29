@@ -69,9 +69,9 @@ def isWarcValid(warcfile):
 
 def showUsage():
 	if quietMode == False:
-		print '\n usage: WARCMerge [ -a <source-file> <Destination-file> ]\n' + \
-			'                  [ <input-directory> <output-directory> ]\n' + \
-			'                  [ <file1> <file2> <file3> ...  <output-directory> ]\n'
+		print '\n usage: WARCMerge [[-q] -a <source-file> <Destination-file> ]\n' + \
+			'                  [[-q] <input-directory> <output-directory> ]\n' + \
+			'                  [[-q] <file1> <file2> <file3> ...  <output-directory> ]\n'
 	sys.exit(0)
 		  
 		                        ############################################								

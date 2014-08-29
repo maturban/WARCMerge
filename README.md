@@ -46,14 +46,14 @@ WARCMerge can be executed using one of three different methods; adding the optio
 
 	Merging the following WARC files: 
 	----------------------------------: 
-	[ Yes ]./collectionExample/world-cup/20140707174317773.warc
-	[ Yes ]./collectionExample/warcs/20140707160258526.warc
-	[ Yes ]./collectionExample/warcs/20140707160041872.warc
-	[ Yes ]./collectionExample/world-cup/20140707183044349.warc
+	[Yes] ./collectionExample/world-cup/20140707174317773.warc
+	[Yes] ./collectionExample/warcs/20140707160258526.warc
+	[Yes] ./collectionExample/warcs/20140707160041872.warc
+	[Yes] ./collectionExample/world-cup/20140707183044349.warc
 
 	Validating the resulting WARC files: 
 	----------------------------------: 
-	- [ valid ]     my-output-dir/WARCMerge20140806040712197944.warc
+	- [valid]   my-output-dir/WARCMerge20140806040712197944.warc
 ```	
 
 ###Example 2: Merging all listed WARC files into new WARC file(s)
@@ -62,14 +62,14 @@ WARCMerge can be executed using one of three different methods; adding the optio
 
 Merging the following WARC files: 
 ----------------------------------: 
-[ Yes ] ./warcs/449.warc
-[ Yes ] ./585.warc
-[ Yes ] ./dir1/113.warc
-[ Yes ] ./472.warc
+[Yes]  ./warcs/449.warc
+[Yes]  ./585.warc
+[Yes]  ./dir1/113.warc
+[Yes]  ./472.warc
 
 Validating the resulting WARC files: 
 ----------------------------------: 
-- [ valid ]     mydir/WARCMerge20140806040546699431.warc
+- [valid]  mydir/WARCMerge20140806040546699431.warc
 ```
 
 ### Example 3: Appending a WARC file to another WARC file:
@@ -84,9 +84,9 @@ Validating the resulting WARC files:
 ```python
   %python WARCMerge.py -n 20160041872.warc new-dir
 
-	usage: WARCMerge [ -a <source-file> <dest-file> ]
-					 [ <input-directory> <output-directory> ]
-					 [ <file1> <file2> <file3> ...  <output-directory> ] 
+	usage: WARCMerge [[-q] -a <source-file> <dest-file> ]
+					 [[-q] <input-directory> <output-directory> ]
+					 [[-q] <file1> <file2> <file3> ...  <output-directory> ] 
 ```
 
 
